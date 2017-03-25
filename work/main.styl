@@ -1,0 +1,210 @@
+@import "punct.styl"
+@import "fonts.styl"
+
+.unknown
+	font-family: "Adobe Blank", "Adobe Notdef"
+
+html, body
+	margin 0
+	padding 0
+	font-family: "Helvetica Neue", "Helvetica", "Arial", "Roboto", sans-serif
+
+kbd
+	font-family: Consolas, monospace;
+	display inline-block
+	padding 0.1em 0.3em
+	background black
+	color white
+	line-height 1em
+
+header
+	$border = 3px
+	line-height: 4rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: white;
+	border-bottom: 2px solid black;
+	z-index: 9999;
+	box-shadow: 0 4px 0 0 rgba(0, 0, 0, 5%)
+	nav
+		margin 0 auto;
+		text-align: center
+		.group
+			display: inline-block
+			&.sxs
+				border-left 1px solid black
+				margin-left 1em
+				label
+					margin-left 1em
+			label
+				display: inline-block
+				line-height: 1.2
+				text-align: right
+				padding-right: 0.5em
+				margin-left: 2em
+				font-size: 0.9em
+				font-weight: 600
+				position: relative
+				top 0.55em
+				white-space: pre-wrap
+			button, input, select
+				font-size 1.25em
+				display: inline-block
+				border: $border solid black
+				padding 0
+				box-sizing: border-box
+				height 2.4rem
+				line-height 1
+				background: black
+				color: white
+				position: relative
+				top 0.8rem
+				vertical-align: top
+				&:hover
+					background #666
+				&[disabled]
+					background #666
+			button
+				text-align: center
+				cursor: pointer
+				&.pm
+					min-width: 1.75em
+				&.toggle
+					width: 2.5em
+					&.narrow
+						width: 2em
+					&.wide
+						width: 5em
+						> span
+							font-size: 0.8em
+							vertical-align: 0.1em;
+					&.on
+						border $border solid black
+						background white
+						color black
+						padding 0
+					&.on:hover
+						background #ccc
+			input
+				width: 2.5em
+				background: #333
+				text-align: center
+		
+			&.opposite select
+				margin-left: 1.28em
+		.group.sp
+			margin-left 1em
+		.group.ot
+			position: relative
+			> button.on
+				border-bottom none
+				padding-bottom 3px
+				z-index: 9999
+			table
+				z-index 9997
+				position: absolute
+				top 3.2em
+				margin-top: (0 - $border)
+				left 0
+				border $border solid black
+				background white
+				line-height: 1.5
+				box-shadow: 0 0 0 3px rgba(0, 0, 0, 5%)
+				td
+					padding 0.5em
+				td.label
+					text-align: left
+					white-space: nowrap
+					kbd
+						background: black
+						color white
+						border-radius: 0.3em
+				td.button button
+					height 2.4rem
+					position: static
+
+footer
+	text-align: center;
+	margin: 3em 0
+
+main
+	margin 0
+	padding: 6rem 2rem
+
+	font-feature-settings: "liga", "calt"
+	&.curly
+		font-feature-settings: "ss19", "liga", "calt"
+	&.palt
+		font-feature-settings: "palt", "liga", "calt"
+	&.curly.palt
+		font-feature-settings: "ss19", "palt", "liga", "calt"
+	
+	.suite
+		display: flex
+		justify-content: center;
+		margin-top: 1rem;
+		text-justify: inter-cluster
+		> section
+			border-top: 1px solid black
+			flex: 1
+	.suite.weights
+		.sample
+			margin: 1.5em 0
+			padding-left: 5rem
+			position: relative
+			h4
+				position: absolute
+				top 0.1em
+				left 0
+				z-index 9998
+				font-weight: bold
+				font-size: 0.8rem
+				margin 0
+		.unsupported
+			opacity: 0.1
+	
+	.suite.sync
+		.toolbar
+			margin: 0.5em 0
+			select
+				font-size: 1em
+		textarea
+			display: block
+			border: 2px solid black
+			margin: 0.5em 0
+			padding: 0.5em
+			box-sizing: border-box
+			width 100%
+			height 16em
+	
+	.opposite
+		margin-left: 3rem;
+
+.oneside .opposite
+	display: none
+
+.night
+	#intro
+		background black
+		color white
+	.suite > section
+		border-top-color: white
+	.suite.sync textarea
+		border-color white
+		color white
+		background black
+
+article
+	a
+		color black
+		&:hover
+			color red
+	table
+		width 100%
+	p, ul, ol, li, tr, th, td
+		margin 1em 0
+		line-height 1.5
+		hyphens auto
+		text-justify: inter-cluster

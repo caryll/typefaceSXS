@@ -1,0 +1,116 @@
+@font-face {
+					font-family : "Arcturus";
+					font-weight : 200;
+					font-style : normal;
+					src: url(test-fonts/0.woff2) format("woff2");
+				}@font-face {
+					font-family : "Arcturus";
+					font-weight : 300;
+					font-style : normal;
+					src: url(test-fonts/1.woff2) format("woff2");
+				}@font-face {
+					font-family : "Arcturus";
+					font-weight : 400;
+					font-style : normal;
+					src: url(test-fonts/2.woff2) format("woff2");
+				}@font-face {
+					font-family : "Arcturus";
+					font-weight : 600;
+					font-style : normal;
+					src: url(test-fonts/3.woff2) format("woff2");
+				}@font-face {
+					font-family : "Arcturus";
+					font-weight : 700;
+					font-style : normal;
+					src: url(test-fonts/4.woff2) format("woff2");
+				}.arcturus{ font-family: "Arcturus", "Adobe Blank", "Adobe Notdef" }.arcturus input, .arcturus textarea { font-family: "Arcturus", "Adobe Blank", "Adobe Notdef" }@font-face {
+					font-family : "Antares";
+					font-weight : 200;
+					font-style : normal;
+					src: url(test-fonts/5.woff2) format("woff2");
+				}@font-face {
+					font-family : "Antares";
+					font-weight : 300;
+					font-style : normal;
+					src: url(test-fonts/6.woff2) format("woff2");
+				}@font-face {
+					font-family : "Antares";
+					font-weight : 400;
+					font-style : normal;
+					src: url(test-fonts/7.woff2) format("woff2");
+				}@font-face {
+					font-family : "Antares";
+					font-weight : 600;
+					font-style : normal;
+					src: url(test-fonts/8.woff2) format("woff2");
+				}@font-face {
+					font-family : "Antares";
+					font-weight : 700;
+					font-style : normal;
+					src: url(test-fonts/9.woff2) format("woff2");
+				}@font-face {
+					font-family : "Antares";
+					font-weight : 900;
+					font-style : normal;
+					src: url(test-fonts/10.woff2) format("woff2");
+				}.antares{ font-family: "Antares", "Adobe Blank", "Adobe Notdef" }.antares input, .antares textarea { font-family: "Antares", "Adobe Blank", "Adobe Notdef" }@font-face {
+					font-family : "Vega";
+					font-weight : 200;
+					font-style : normal;
+					src: url(test-fonts/11.woff2) format("woff2");
+				}@font-face {
+					font-family : "Vega";
+					font-weight : 300;
+					font-style : normal;
+					src: url(test-fonts/12.woff2) format("woff2");
+				}@font-face {
+					font-family : "Vega";
+					font-weight : 400;
+					font-style : normal;
+					src: url(test-fonts/13.woff2) format("woff2");
+				}@font-face {
+					font-family : "Vega";
+					font-weight : 600;
+					font-style : normal;
+					src: url(test-fonts/14.woff2) format("woff2");
+				}@font-face {
+					font-family : "Vega";
+					font-weight : 700;
+					font-style : normal;
+					src: url(test-fonts/15.woff2) format("woff2");
+				}@font-face {
+					font-family : "Vega";
+					font-weight : 900;
+					font-style : normal;
+					src: url(test-fonts/16.woff2) format("woff2");
+				}.vega{ font-family: "Vega", "Adobe Blank", "Adobe Notdef" }.vega input, .vega textarea { font-family: "Vega", "Adobe Blank", "Adobe Notdef" }@font-face {
+					font-family : "Canopus";
+					font-weight : 200;
+					font-style : normal;
+					src: url(test-fonts/17.woff2) format("woff2");
+				}@font-face {
+					font-family : "Canopus";
+					font-weight : 300;
+					font-style : normal;
+					src: url(test-fonts/18.woff2) format("woff2");
+				}@font-face {
+					font-family : "Canopus";
+					font-weight : 400;
+					font-style : normal;
+					src: url(test-fonts/19.woff2) format("woff2");
+				}@font-face {
+					font-family : "Canopus";
+					font-weight : 600;
+					font-style : normal;
+					src: url(test-fonts/20.woff2) format("woff2");
+				}@font-face {
+					font-family : "Canopus";
+					font-weight : 700;
+					font-style : normal;
+					src: url(test-fonts/21.woff2) format("woff2");
+				}@font-face {
+					font-family : "Canopus";
+					font-weight : 900;
+					font-style : normal;
+					src: url(test-fonts/22.woff2) format("woff2");
+				}.canopus{ font-family: "Canopus", "Adobe Blank", "Adobe Notdef" }.canopus input, .canopus textarea { font-family: "Canopus", "Adobe Blank", "Adobe Notdef" }
