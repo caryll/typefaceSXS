@@ -5,5 +5,5 @@ public/main.packed.css : work/main.styl work/fonts.styl work/punct.styl
 	stylus $< -o $@.tmp.css
 	cleancss $@.tmp.css -o $@
 	rm $@.tmp.css
-public/main.packed.js : work/main.js work/novel.vue work/weights.vue work/sync.vue
+public/main.packed.js : work/main.js work/novel.vue work/weights.vue work/sync.vue work/main.vue
 	browserify -t vueify -e $< -o $@

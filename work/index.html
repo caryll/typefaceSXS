@@ -8,49 +8,8 @@
 	<link rel="stylesheet" href="//maxcdn.icons8.com/fonts/icons8_win10/1.0./styles.min.css"/>
 </head>
 <body>
-	<div id="page" v-bind:class="{oneside:!sxs,night:night}" v-on:click=hideOTPanel>
-		<header>
-			<nav>
-				<div class="group" id="sel-left">
-					<select v-model="typeface_1">
-						<option v-for="(ty, id) in typefaces" v-bind:value=id>{{ty.name}}</option>
-					</select>
-				</div>
-				<div class="group"><label>night<br>mode</label><button class="toggle" v-bind:class="{on:night}" v-on:click="togglenight">{{night ? "on" : "off"}}</button></div>
-				<div class="group"><label>text<br>size</label><button class="pm" v-on:click="smaller(1)">−</button><input v-model="typography.size" v-on:keypress.stop value=""><button class="pm" v-on:click="larger(1)">+</button></div>
-				<div class="group"><label>column<br>width</label><button class="pm" v-on:click="narrower(1)">−</button><input v-model="typography.width" v-on:keypress.stop value=""><button class="pm" v-on:click="wider(1)">+</button></div><div class="group sp">
-					<button class="toggle narrow" v-bind:class="{on:typography.align=='left'}" v-on:click="alignTo('left')" title="Align left (Q)"><i class="icons8-align-left"></i></button><button class="toggle narrow" v-bind:class="{on:typography.align=='center'}" v-on:click="alignTo('center')"><i class="icons8-align-center" title="Align Center (W)"></i></button><button class="toggle narrow" v-bind:class="{on:typography.align=='right'}" v-on:click="alignTo('right')" title="Align Right (E)"><i class="icons8-align-right"></i></button><button class="toggle narrow" v-bind:class="{on:typography.align=='justify'}" v-on:click="alignTo('justify')" title="Align Justify (R)"><i class="icons8-align-justify"></i></button>
-				</div>
-				<div class="group ot sp">
-					<button class="toggle wide" v-on:click.stop=toggleOTPanel v-bind:class="{on:showOTPanel}"><span>OpenType</span></button>
-					<table v-show=showOTPanel v-on:click.stop>
-						<tr v-for="(feat, fid) in features" v-if="!feat.hidden">
-							<td class=label>{{feat.title}} <kbd v-if="feat.key">{{feat.key}}</kbd></td>
-							<td class=button><button class="toggle" v-bind:class="{on:feat.on}" v-on:click="toggleFeature(fid)">{{feat.on ? "on" : "off"}}</button></td>
-						</tr>
-					</table>
-				</div>
-
-				<div class="group sxs"><label>side<br>by side</label><button class="toggle" v-bind:class="{on:sxs}" v-on:click="togglesxs">{{sxs ? "on" : "off"}}</button><select v-model="typeface_2" v-bind:disabled="!sxs">
-						<option v-for="(ty, id) in typefaces" v-bind:value=id>{{ty.name}}</option>
-					</select>
-				</div>
-			</nav>
-		</header>
-		<main id="intro" v-bind:style={fontFeatureSettings:otFeatureCSS}>
-			<component v-for="suite in testSuites"
-				v-bind:key="suite.key"
-				v-bind:is="suite.is"
-				v-bind:typeface1=typeface_1
-				v-bind:typeface2=typeface_2
-				v-bind:typefaces=typefaces
-				v-bind:styles=styles
-				v-bind:typography=typography
-				v-bind:sample="suite.sample"></component>
-		</main>
-		<footer>TypefaceSXS</footer>
-	</div>
-	<script src="han.js"></script>
+	<div id="page"></div>
+	<script src="han/han.js"></script>
 	<script src="main.packed.js"></script>
 </body>
 </html>

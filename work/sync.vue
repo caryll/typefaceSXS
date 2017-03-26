@@ -7,7 +7,7 @@
 				        v-bind:value="sid">{{sid}}</option>
 			</select> | Text size synchronized with global config.</div>
 			<textarea v-bind:class="[typeface1]"
-			          v-model="sample"
+			          v-model="content"
 			          v-on:keypress.stop
 			          v-bind:style="{
 							  fontSize: typography.size + 'px',
@@ -23,7 +23,7 @@
 				        v-bind:value="sid">{{sid}}</option>
 			</select> | Text size synchronized with global config.</div>
 			<textarea v-bind:class="[typeface2]"
-			          v-model="sample"
+			          v-model="content"
 			          v-on:keypress.stop
 			          v-bind:style="{
 							  fontSize: typography.size + 'px',
@@ -39,6 +39,7 @@
 module.exports = {
 	props: ['typeface1', 'typeface2', 'typography', 'styles', 'sample'],
 	data: () => ({
+		content: this.sample,
 		currentStyle: "regular"
 	})
 }
