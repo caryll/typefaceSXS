@@ -53,38 +53,51 @@ fs.createReadStream(configPath, 'utf8').pipe(concat(function (data) {
 
 		for (let styleID in family) {
 			const style = family[styleID];
-			if (!style.src) continue;
-			const fromPath = path.resolve(configDir, style.src);
-			if (!fs.existsSync(fromPath)) continue;
-
-			json.typefaces[familyID].supports[styleID] = true;
-			const toPath = path.join(publicDir, "test-fonts", fontid + path.extname(style.src));
-			const url = path.join("test-fonts", fontid + path.extname(style.src)).replace(/\\/g, '/');
-
-			fs.copySync(fromPath, toPath);
-			console.log("Copied font", fromPath, "->", toPath);
-
 			const weight = (config.styles[styleID] || {}).weight || 400;
 			const fontStyle = (config.styles[styleID] || {}).style || "normal";
 
-			const format = /\.woff2$/.test(style.src) ? 'woff2'
-				: /\.woff$/.test(style.src) ? 'woff'
-					: /\.otf$/.test(style.src) ? 'opentype'
-						: /\.ttf$/.test(style.src) ? 'truetype'
-							: 'unknown';
+			if (style.local) {
+				css += `@font-face {
+					font-family : "${family.name}";
+					font-weight : ${weight};
+					font-style : ${fontStyle};
+					src: local(${style.local});
+				}`
+				json.typefaces[familyID].supports[styleID] = true;
+				fontid += 1;
+				console.log("Registered font", family.name, weight, fontStyle);
+				continue;
+			} else if (style.src) {
+				const fromPath = path.resolve(configDir, style.src);
+				if (!fs.existsSync(fromPath)) continue;
 
-			css += `@font-face {
+				json.typefaces[familyID].supports[styleID] = true;
+				const toPath = path.join(publicDir, "test-fonts", fontid + path.extname(style.src));
+				const url = path.join("test-fonts", fontid + path.extname(style.src)).replace(/\\/g, '/');
+
+				fs.copySync(fromPath, toPath);
+				console.log("Copied font", fromPath, "->", toPath);
+
+
+				const format = /\.woff2$/.test(style.src) ? 'woff2'
+					: /\.woff$/.test(style.src) ? 'woff'
+						: /\.otf$/.test(style.src) ? 'opentype'
+							: /\.ttf$/.test(style.src) ? 'truetype'
+								: 'unknown';
+
+				css += `@font-face {
 					font-family : "${family.name}";
 					font-weight : ${weight};
 					font-style : ${fontStyle};
 					src: url(${url}) format("${format}");
 				}`
-			fontid += 1;
-			console.log("Registered font", family.name, weight, fontStyle);
+				fontid += 1;
+				console.log("Registered font", family.name, weight, fontStyle);
+			}
 		}
-		const familySeq = (config.typefaces.family_prefix || []).map(x => '"' + x + '"')
+		const familySeq = (family.family_prefix || config.typefaces.family_prefix || []).map(x => '"' + x + '"')
 			.concat([`"${family.name}"`])
-			.concat((config.typefaces.family_suffix || []).map(x => '"' + x + '"'))
+			.concat((family.family_suffix || config.typefaces.family_suffix || []).map(x => '"' + x + '"'))
 			.join(', ')
 		css += `.${familyID}{ font-family: ${familySeq} }`
 		css += `.${familyID} input, .${familyID} textarea { font-family: ${familySeq} }`
