@@ -17,7 +17,7 @@ if (!argv._[0]) { process.exit(1); }
 
 const configPath = argv._[0];
 const configDir = path.dirname(configPath);
-const publicDir = path.join(configDir, ".typeSXS_public");
+const publicDir = path.join(argv.d || configDir, ".typeSXS_public");
 
 fs.createReadStream(configPath, 'utf8').pipe(concat(function (data) {
 	const config = toml.parse(data);

@@ -88,7 +88,7 @@
 			           v-bind:typography="typography"
 			           v-bind:sample="suite.sample"></component>
 		</main>
-		<footer>TypefaceSXS</footer>
+		<footer>{{samples.footer || 'TypefaceSXS'}}</footer>
 	</div>
 </template>
 
