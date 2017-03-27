@@ -20,7 +20,7 @@ const configDir = path.dirname(configPath);
 const publicDir = path.join(argv.d || configDir, ".typeSXS_public");
 
 fs.createReadStream(configPath, 'utf8').pipe(concat(function (data) {
-	const config = toml.parse(data);
+	const config = toml.parse(data.replace(/\ufeff/g, ''));
 
 	if (!config.typefaces) { throw "[typefaces] not defined." }
 	if (!config.articles) { throw "[articles] not defined." }
@@ -57,14 +57,15 @@ fs.createReadStream(configPath, 'utf8').pipe(concat(function (data) {
 			const fontStyle = (config.styles[styleID] || {}).style || "normal";
 
 			if (style.local) {
-				css += `@font-face {
-					font-family : "${family.name}";
-					font-weight : ${weight};
-					font-style : ${fontStyle};
-					src: local(${style.local});
-				}`
+				if (typeof style.local === "string") {
+					css += `@font-face {
+						font-family : "${family.name}";
+						font-weight : ${weight};
+						font-style : ${fontStyle};
+						src: local(${style.local});
+					}`
+				}
 				json.typefaces[familyID].supports[styleID] = true;
-				fontid += 1;
 				console.log("Registered font", family.name, weight, fontStyle);
 				continue;
 			} else if (style.src) {
@@ -96,7 +97,7 @@ fs.createReadStream(configPath, 'utf8').pipe(concat(function (data) {
 			}
 		}
 		const familySeq = (family.family_prefix || config.typefaces.family_prefix || []).map(x => '"' + x + '"')
-			.concat([`"${family.name}"`])
+			.concat([`"${family.localFamilyName || family.name}"`])
 			.concat((family.family_suffix || config.typefaces.family_suffix || []).map(x => '"' + x + '"'))
 			.join(', ')
 		css += `.${familyID}{ font-family: ${familySeq} }`

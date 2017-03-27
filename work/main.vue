@@ -8,7 +8,7 @@
 				     id="sel-left">
 					<select v-model="typeface_1">
 						<option v-for="(ty, id) in typefaces"
-						        v-bind:value="id">{{ty.name}}</option>
+						        v-bind:value="id">{{ty.name}}{{ty.key_l ? " [" + ty.key_l + "]" : ""}}</option>
 					</select>
 				</div>
 				<div class="group">
@@ -71,7 +71,7 @@
 					        v-on:click="togglesxs">{{sxs ? "on" : "off"}}</button><select v-model="typeface_2"
 					        v-bind:disabled="!sxs">
 						<option v-for="(ty, id) in typefaces"
-						        v-bind:value="id">{{ty.name}}</option>
+						        v-bind:value="id">{{ty.name}}{{ty.key_r ? " [" + ty.key_r + "]" : ""}}</option>
 					</select>
 				</div>
 			</nav>
@@ -110,7 +110,7 @@ module.exports = {
 		typefaces: { unknown: { name: "unknown", supports: {} } },
 		styles: {},
 		samples: {},
-		typography: { size: 16, width: 40, align: "justify" },
+		typography: { size: 16, width: 40, align: "left" },
 		features: {},
 		articles: [],
 		sxs: true,
