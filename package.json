@@ -3,14 +3,14 @@
   "dependencies": {
     "axios": "^0.15.3",
     "concat-stream": "^1.6.0",
-    "finalhandler": "^1.0.1",
+    "finalhandler": "^1.0.4",
     "fs-extra": "^2.1.2",
     "marked": "^0.3.6",
     "opn": "^4.0.2",
-    "serve-static": "^1.12.1",
+    "serve-static": "^1.12.4",
     "toml": "^2.3.2",
-    "vue": "^2.2.5",
-    "yargs": "^7.0.2"
+    "vue": "^2.4.2",
+    "yargs": "^7.1.0"
   },
   "devDependencies": {
     "vueify": "^9.4.1"

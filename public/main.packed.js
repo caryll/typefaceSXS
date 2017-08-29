@@ -9823,21 +9823,6 @@ module.exports = Vue$2;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"_process":1}],30:[function(require,module,exports){
-const axios = require('axios');
-
-const Vue = require('vue');
-const TypefaceSXS = require('./main.vue');
-
-
-const vRoot = new Vue({
-	el: '#page',
-	render: function (createElement) {
-		return createElement(TypefaceSXS)
-	}
-}).$children[0];
-
-document.documentElement.onkeypress = function (e) { vRoot.handleKey(e.key) }
-},{"./main.vue":31,"axios":2,"vue":29}],31:[function(require,module,exports){
 ;(function(){
 //
 //
@@ -10079,7 +10064,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-603c3b86", __vue__options__)
   }
 })()}
-},{"./novel.vue":32,"./sync.vue":33,"./weights.vue":34,"axios":2,"vue":29,"vue-hot-reload-api":28}],32:[function(require,module,exports){
+},{"./novel.vue":31,"./sync.vue":32,"./weights.vue":33,"axios":2,"vue":29,"vue-hot-reload-api":28}],31:[function(require,module,exports){
 ;(function(){
 //
 //
@@ -10117,8 +10102,6 @@ module.exports = {
 		axios.get(this.sample.src)
 			.then(function (response) {
 				t.rendered_content = marked(response.data, { sanitize: true });
-				setTimeout(function () { Han(t.$refs.article1).render() }, 100);
-				setTimeout(function () { Han(t.$refs.article2).render() }, 100);
 			})
 	}
 }
@@ -10139,7 +10122,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-e5030c82", __vue__options__)
   }
 })()}
-},{"axios":2,"marked":27,"vue":29,"vue-hot-reload-api":28}],33:[function(require,module,exports){
+},{"axios":2,"marked":27,"vue":29,"vue-hot-reload-api":28}],32:[function(require,module,exports){
 ;(function(){
 //
 //
@@ -10213,7 +10196,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-65f3e130", __vue__options__)
   }
 })()}
-},{"vue":29,"vue-hot-reload-api":28}],34:[function(require,module,exports){
+},{"vue":29,"vue-hot-reload-api":28}],33:[function(require,module,exports){
 ;(function(){
 //
 //
@@ -10249,8 +10232,6 @@ module.exports = {
 	props: ['typeface1', 'typeface2', 'typography', 'typefaces', 'styles', 'sample'],
 	mounted: function () {
 		const t = this;
-		setTimeout(function () { Han(t.$refs.article1).render() }, 100);
-		setTimeout(function () { Han(t.$refs.article2).render() }, 100);
 	}
 }
 
@@ -10270,4 +10251,19 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.reload("data-v-7668ab84", __vue__options__)
   }
 })()}
-},{"vue":29,"vue-hot-reload-api":28}]},{},[30]);
+},{"vue":29,"vue-hot-reload-api":28}],34:[function(require,module,exports){
+const axios = require('axios');
+
+const Vue = require('vue');
+const TypefaceSXS = require('./main.vue');
+
+
+const vRoot = new Vue({
+	el: '#page',
+	render: function (createElement) {
+		return createElement(TypefaceSXS)
+	}
+}).$children[0];
+
+document.documentElement.onkeypress = function (e) { vRoot.handleKey(e.key) }
+},{"./main.vue":30,"axios":2,"vue":29}]},{},[34]);

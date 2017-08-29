@@ -32,8 +32,6 @@ module.exports = {
 	props: ['typeface1', 'typeface2', 'typography', 'typefaces', 'styles', 'sample'],
 	mounted: function () {
 		const t = this;
-		setTimeout(function () { Han(t.$refs.article1).render() }, 100);
-		setTimeout(function () { Han(t.$refs.article2).render() }, 100);
 	}
 }
 </script>

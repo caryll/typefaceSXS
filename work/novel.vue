@@ -34,8 +34,6 @@ module.exports = {
 		axios.get(this.sample.src)
 			.then(function (response) {
 				t.rendered_content = marked(response.data, { sanitize: true });
-				setTimeout(function () { Han(t.$refs.article1).render() }, 100);
-				setTimeout(function () { Han(t.$refs.article2).render() }, 100);
 			})
 	}
 }
